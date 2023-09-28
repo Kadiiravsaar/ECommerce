@@ -21,6 +21,6 @@ namespace Buissnes.Abstract
 
         Task<bool> DeleteAsync(int id);
 
-        Task<AccessToken> Authenticate(UserForLoginDto userForLoginDto);
+        
     }
 }
