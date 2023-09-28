@@ -1,0 +1,80 @@
+﻿@model WebAPIWithCoreMvc.ViewModel.UserUpdateViewModel
+
+<h1>Kullanıcı düzenle</h1>
+<div class="row">
+    <div class="col-md-4 ">
+        <form asp-action="Update" method="post">
+
+            <div class="form-group">
+                <label asp-for="UserName">Kullanıcı adı</label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger" />
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label asp-for="FirstName">Ad</label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger" />
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label asp-for="LastName">Soyad</label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger" />
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger" />
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label asp-for="Password">Şifre </label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger" />
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label asp-for="DateOfBirth">Doğum Tarihi </label>
+                <input asp-for="DateOfBirth" class="form-control" />
+                <span asp-validation-for="DateOfBirth" class="text-danger" />
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label asp-for="Address">Adres</label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger" />
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label asp-for="GenderId">Cinsiyet</label>
+                <select asp-for="GenderId" class="form-control" asp-items="@(new SelectList(ViewBag.GenderList,"Id","GenderName"))"></select>
+                <span asp-validation-for="GenderId" class="text-danger" />
+            </div>
+
+            <br />
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Düzenle" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-info">Listeye Geri Dön</a>
+
+            </div>
+
+        </form>
+    </div>
+</div>
