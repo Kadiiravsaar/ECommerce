@@ -1,10 +1,13 @@
 ﻿using Buissnes.Abstract;
 using Entitites.Dtos.UserDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
+
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
@@ -40,7 +43,7 @@ namespace WebAPI.Controllers
         }
 
 
-
+        
         [HttpPost("[action]")]
         public async Task<IActionResult> Add([FromBody] UserAddDto userAddDto)
         {
@@ -74,6 +77,19 @@ namespace WebAPI.Controllers
                 return Ok(true);
             }
             return BadRequest(false);
+        }
+
+
+        [AllowAnonymous] // dışardan herkes gelebilir
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Authenticate([FromBody] UserForLoginDto userForLoginDto)
+        {
+            var result = await _userService.Authenticate(userForLoginDto);
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
         }
 
     }

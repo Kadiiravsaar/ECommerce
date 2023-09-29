@@ -12,7 +12,7 @@
     "WebAPI": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": false, // svaggeri açmasını engelledik
+      "launchBrowser": true, // svaggeri açmasını engelledik
       "launchUrl": "swagger",
       "applicationUrl": "https://localhost:7258;http://localhost:5080",
       "environmentVariables": {

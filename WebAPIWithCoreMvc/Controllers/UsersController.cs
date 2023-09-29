@@ -107,8 +107,6 @@ namespace WebAPIWithCoreMvc.Controllers
 
 
 
-
-
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
@@ -129,7 +127,6 @@ namespace WebAPIWithCoreMvc.Controllers
 
             return View(userDeleteViewModel);
         }
-
 
 
         [HttpPost, ActionName("Delete")]
