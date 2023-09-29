@@ -1,17 +1,12 @@
 using Buissnes.Abstract;
 using Buissnes.Concrete;
-using Core.DataAccess;
-using Core.Helpers.JWT;
-using DataAccess;
+using Core.Utilities.Security.Token;
+using Core.Utilities.Security.Token.JWT;
 using DataAccess.Abstract;
-using DataAccess.Concrete;
 using DataAccess.Concrete.EFramework;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -60,7 +55,7 @@ var key = Encoding.ASCII.GetBytes(appSettings.SecurityKey);
 builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    x.DefaultChallengeScheme= JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(x =>
 {
     x.RequireHttpsMetadata = false;
@@ -79,6 +74,7 @@ builder.Services.AddAuthentication(x =>
 
 builder.Services.AddScoped<IUserDal, EfUserDal>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ITokenService, TokenService>();
 //builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(EfBaseRepository<,>));
 
 

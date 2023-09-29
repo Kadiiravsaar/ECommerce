@@ -1,5 +1,6 @@
 ﻿using Buissnes.Abstract;
 using Core.Helpers.JWT;
+using Core.Utilities.Security.Token;
 using DataAccess.Abstract;
 using Entitites.Concrete;
 using Entitites.Dtos.UserDtos;

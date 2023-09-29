@@ -1,11 +1,5 @@
-﻿using Core.Helpers.JWT;
+﻿using Core.Utilities.Security.Token;
 using Entitites.Dtos.UserDtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Buissnes.Abstract
 {
