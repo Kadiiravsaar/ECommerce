@@ -143,7 +143,44 @@ namespace Buissnes.Concrete
             return await _userDal.DeleteAsync(id);
         }
 
-      
+        public async Task<AccessToken> Authenticate(UserForLoginDto userForLoginDto)
+        {
+            var user = await _userDal.GetAsync(x => x.UserName == userForLoginDto.UserName && x.Password == userForLoginDto.Password);
 
+            if (user == null)
+            {
+                return null;
+
+            }
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+
+            var key = Encoding.ASCII.GetBytes(_appSettings.SecurityKey);
+
+            var tokenDescriptor = new SecurityTokenDescriptor()
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.Name, user.Id.ToString())     //                 burası token içeriği
+                }),
+                Expires = DateTime.UtcNow.AddDays(7),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+
+
+            var token = tokenHandler.CreateToken(tokenDescriptor); // token oluşturucaz
+
+            AccessToken accessToken = new AccessToken()
+            {
+                Token = tokenHandler.WriteToken(token),
+                UserName = user.UserName,
+                Expiration = (DateTime)tokenDescriptor.Expires,
+                UserId = user.Id
+            };
+
+            return await Task.Run(() => accessToken);
+        }
+
+     
     }
 }
