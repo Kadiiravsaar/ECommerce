@@ -1,5 +1,7 @@
+using AutoMapper;
 using Buissnes.Abstract;
 using Buissnes.Concrete;
+using Buissnes.Mappings;
 using Core.Utilities.Security.Token;
 using Core.Utilities.Security.Token.JWT;
 using DataAccess.Abstract;
@@ -70,6 +72,17 @@ builder.Services.AddAuthentication(x =>
 });
 #endregion
 
+#region AutoMapper
+
+var mapperConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new MapProfile());
+});
+var mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
+
+
+#endregion
 
 
 builder.Services.AddScoped<IUserDal, EfUserDal>();
