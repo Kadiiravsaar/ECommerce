@@ -13,7 +13,7 @@ namespace Buissnes.Mappings
     {
         public MapProfile()
         {
-            CreateMap<User, UserDetailDto>().ReverseMap() ;
+            CreateMap<User, UserDetailDto>().ReverseMap();
             CreateMap<User, UserDto>().ReverseMap();
             CreateMap<User, UserAddDto>().ReverseMap();
             CreateMap<User, UserUpdateDto>().ReverseMap();
