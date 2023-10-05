@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entitites.Dtos.UserDtos
+namespace Entitites.Dtos.Auth
 {
     public class LoginDto : IDto
     {

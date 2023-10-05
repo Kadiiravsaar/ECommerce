@@ -5,7 +5,7 @@ using Core.Utilities.Response;
 using Core.Utilities.Security.Token;
 using DataAccess.Abstract;
 using Entitites.Concrete;
-using Entitites.Dtos.UserDtos;
+using Entitites.Dtos.User;
 using Microsoft.Extensions.Options;
 using System.Linq.Expressions;
 

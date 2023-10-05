@@ -3,12 +3,8 @@ using Buissnes.Abstract;
 using Buissnes.Constants;
 using Core.Utilities.Response;
 using Core.Utilities.Security.Token;
-using Entitites.Dtos.UserDtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Entitites.Dtos.Auth;
+using Entitites.Dtos.User;
 
 namespace Buissnes.Concrete
 {

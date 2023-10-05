@@ -1,7 +1,6 @@
 ﻿using Core.Utilities.Response;
-using Core.Utilities.Security.Token;
 using Entitites.Concrete;
-using Entitites.Dtos.UserDtos;
+using Entitites.Dtos.User;
 using System.Linq.Expressions;
 
 namespace Buissnes.Abstract

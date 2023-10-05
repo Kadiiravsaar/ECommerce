@@ -1,7 +1,5 @@
 ﻿using Buissnes.Abstract;
-using Entitites.Dtos.UserDtos;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+using Entitites.Dtos.User;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers

@@ -1,10 +1,6 @@
 ﻿using Core.Utilities.Response;
-using Entitites.Dtos.UserDtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Entitites.Dtos.Auth;
+using Entitites.Dtos.User;
 
 namespace Buissnes.Abstract
 {
