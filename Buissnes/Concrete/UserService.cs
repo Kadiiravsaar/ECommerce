@@ -96,7 +96,7 @@ namespace Buissnes.Concrete
             return new SuccessApiDataResponse<bool>(deletedUser, Messages.Deleted);
         }
 
-        public async Task<ApiDataResponse<UserDto>> GetdAsync(Expression<Func<User, bool>> filter)
+        public async Task<ApiDataResponse<UserDto>> GetAsync(Expression<Func<User, bool>> filter)
         {
             var user = await _userDal.GetAsync(filter);
             if (user != null)

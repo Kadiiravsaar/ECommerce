@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebAPI.Controllers
 {
 
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
@@ -72,7 +72,7 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _userService.DeleteAsync(id);
-            if (result)
+            if (result.Data)
             {
                 return Ok(true);
             }
@@ -80,17 +80,17 @@ namespace WebAPI.Controllers
         }
 
 
-        [AllowAnonymous] // dışardan herkes gelebilir
-        [HttpPost("[action]")]
-        public async Task<IActionResult> Authenticate([FromBody] UserForLoginDto userForLoginDto)
-        {
-            var result = await _userService.Authenticate(userForLoginDto);
-            if (result != null)
-            {
-                return Ok(result);
-            }
-            return BadRequest();
-        }
+        //[AllowAnonymous] // dışardan herkes gelebilir
+        //[HttpPost("[action]")]
+        //public async Task<IActionResult> Authenticate([FromBody] LoginDto userForLoginDto)
+        //{
+        //    var result = await _userService.Authenticate(userForLoginDto);
+        //    if (result != null)
+        //    {
+        //        return Ok(result);
+        //    }
+        //    return BadRequest();
+        //}
 
     }
 }

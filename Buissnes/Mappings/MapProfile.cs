@@ -17,6 +17,8 @@ namespace Buissnes.Mappings
             CreateMap<User, UserDto>().ReverseMap();
             CreateMap<User, UserAddDto>().ReverseMap();
             CreateMap<User, UserUpdateDto>().ReverseMap();
+            CreateMap<UserDto, UserUpdateDto>().ReverseMap();
+
         }
     }
 }

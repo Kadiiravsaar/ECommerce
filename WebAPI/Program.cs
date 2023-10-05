@@ -4,11 +4,14 @@ using Buissnes.Concrete;
 using Buissnes.Mappings;
 using Core.Utilities.Security.Token;
 using Core.Utilities.Security.Token.JWT;
+using DataAccess;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EFramework;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -88,6 +91,9 @@ builder.Services.AddSingleton(mapper);
 builder.Services.AddScoped<IUserDal, EfUserDal>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+
+
 //builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(EfBaseRepository<,>));
 
 

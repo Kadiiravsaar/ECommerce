@@ -10,7 +10,7 @@ namespace Buissnes.Abstract
     {
         Task<ApiDataResponse<IEnumerable<UserDetailDto>>> GetListAsync(Expression<Func<User, bool>> filter = null);
 
-        Task<ApiDataResponse<UserDto>> GetdAsync(Expression<Func<User, bool>> filter);
+        Task<ApiDataResponse<UserDto>> GetAsync(Expression<Func<User, bool>> filter);
         Task<ApiDataResponse<UserDto>> GetByIdAsync(int id);
 
         Task<ApiDataResponse<UserDto>> AddAsync(UserAddDto userAddDto);
