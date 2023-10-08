@@ -23,8 +23,17 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapAreaControllerRoute(
+        areaName:"Admin",
+      name: "Admin",
+      pattern: "Admin/{controller=Home}/{action=Index}/{id?}"
+    );
+});
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Users}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
