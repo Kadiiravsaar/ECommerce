@@ -1,6 +1,5 @@
-﻿using Entitites.Dtos.UserDtos;
+﻿using Entitites.Dtos.User;
 using Microsoft.AspNetCore.Mvc;
-using System.Net.Http;
 using WebAPIWithCoreMvc.ViewModel;
 
 namespace WebAPIWithCoreMvc.Controllers
