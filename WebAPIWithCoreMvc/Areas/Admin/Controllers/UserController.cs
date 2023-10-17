@@ -9,12 +9,10 @@ namespace WebAPIWithCoreMvc.Areas.Admin.Controllers
     public class UserController : Controller
     {
         IUserApiService _userApiService;
-        IHttpContextAccessor _contextAccessor;
 
-        public UserController(IUserApiService userApiService, IHttpContextAccessor contextAccessor)
+        public UserController(IUserApiService userApiService)
         {
             _userApiService = userApiService;
-            _contextAccessor = contextAccessor;
         }
 
         [HttpGet]

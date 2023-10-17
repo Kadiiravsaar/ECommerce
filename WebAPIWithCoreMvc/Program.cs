@@ -1,15 +1,17 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using WebAPIWithCoreMvc.ApiServices;
 using WebAPIWithCoreMvc.ApiServices.Interfaces;
+using WebAPIWithCoreMvc.Handler;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
- 
+
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddSession(); 
+builder.Services.AddSession();
+builder.Services.AddScoped<AuthTokenHandler>();
 
 #region httpclient
 builder.Services.AddHttpClient<IAuthApiService, AuthApiService>(opt =>
@@ -20,7 +22,7 @@ builder.Services.AddHttpClient<IAuthApiService, AuthApiService>(opt =>
 builder.Services.AddHttpClient<IUserApiService, UserApiService>(opt =>
 {
     opt.BaseAddress = new Uri("https://localhost:7258/api/");
-});
+}).AddHttpMessageHandler<AuthTokenHandler>();
 #endregion
 
 #region Cookie
@@ -53,12 +55,13 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapAreaControllerRoute(
-        areaName:"Admin",
+      areaName: "Admin",
       name: "Admin",
       pattern: "Admin/{controller=Home}/{action=Index}/{id?}"
     );
