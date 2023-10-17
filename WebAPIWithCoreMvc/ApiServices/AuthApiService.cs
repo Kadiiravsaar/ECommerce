@@ -16,7 +16,7 @@ namespace WebAPIWithCoreMvc.ApiServices
         }
 
         public async Task<ApiDataResponse<UserDto>> LoginAsync(LoginDto loginDto)
-        {
+        {// apiye istek atıyor
             HttpResponseMessage httpResponseMessage = await _httpClient.PostAsJsonAsync("Auth/Login", loginDto);
             if (httpResponseMessage.IsSuccessStatusCode) 
             {
